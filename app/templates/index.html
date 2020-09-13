@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-2 text-center">newsbite..</h1>
+  <p class="display-3 text-center lead">Get your news in a summarised format. Read only what you need.</p>
+</div>
+
+  <div class="container-fluid align-content-center text-center bg-dark">
+    {% for author, publishedAt, title, desc, img, links in context %}
+      {% if author %}
+      <h2>{{author}}</h2>
+      {% else %}
+      <h2></h2>
+      {% endif %}
+      <h2>Published at {{publishedAt}}</h2>
+      <h3><a href="{{links}}">{{title}}</a></h3>
+      <h4>{{desc}}</h4>
+      <img src="{{img}}" alt="">
+    {% endfor %}
+  </div>
+{% endblock %}
